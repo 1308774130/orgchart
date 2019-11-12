@@ -44,6 +44,8 @@ dropCriteria【function】：用户可以构造自己的标准来限制拖动节
 
 initCompleted【function】：经常知道您的表何时已经完全初始化、数据加载和呈现，尤其是当使用Ajax数据源时
 
+className【String】：给node加一个class名字,用于自定义css
+
 
 ————————————————
 版权声明：本文为CSDN博主「van久」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
