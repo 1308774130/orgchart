@@ -1,4 +1,11 @@
 data【json or String】：数据
+    数据格式:{
+      className：给node加一个class名字,用于自定义css,
+      id:就是id,
+      name:'',
+      title:'',
+      children:[]
+    }
 
 pan 【boolean 默:flase】：通过鼠标拖放来控制OrgChart
 
@@ -44,7 +51,7 @@ dropCriteria【function】：用户可以构造自己的标准来限制拖动节
 
 initCompleted【function】：经常知道您的表何时已经完全初始化、数据加载和呈现，尤其是当使用Ajax数据源时
 
-className【String】：给node加一个class名字,用于自定义css
+
 
 
 ————————————————
