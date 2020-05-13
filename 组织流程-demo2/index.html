@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>orgchart</title>
+
+<link rel="stylesheet" href="css/jquery.orgchart.css" />
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="http://at.alicdn.com/t/font_1025979_2qvxi80ecfg.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.orgchart.js" ></script>
+
+</head>
+<body>
+
+<div id="chart-container"></div>
+
+<script type="text/javascript">
+  (function($){
+  $(function() {
+  	var icon = {
+  		'level_1':'icon-zuhuhoutaiguanlitubiao_-',
+  		'lock':'icon-icon-mima',
+  		'unlock':'icon-jiesuo',
+  		'weitongG':'icon-icon-mima',
+  		'applyTj':'icon-shenqing2',
+  		'applyTg':'icon-shenpi'
+  	}
+    var datascource = {
+      'id':0,//加不加都行
+      'name': iniTitlehtml(icon.level_1),
+      'rate': 'aaa',
+                'childnum': '3',
+      'title': initContentml('集团XXXX系统'),
+      'children': [
+        {
+        	'name': iniTitlehtml(icon.unlock),
+      		'title': initContentml('【某某某某卡片】已开放','2019-09-01'),
+      		'children': [{
+      			'name': iniTitlehtml(icon.applyTg),
+      			'title': initContentml('已通过审批','2019-09-01'),
+      		}]
+        },
+        {
+        	'name': iniTitlehtml(icon.lock),
+      		'title': initContentml('【某某某某卡片】未开放'),
+      		'children': [{
+      			'name': iniTitlehtml(icon.applyTj),
+      			'title': initContentml('审批申请提交'),
+      		}]
+        },
+        {
+        	'name': iniTitlehtml(icon.lock),
+      		'title': initContentml('【某某某某卡片】未开放'),
+      		'children': [{
+      			'name': iniTitlehtml(icon.applyTj),
+      			'title': initContentml('审批未通过'),
+      		}]
+        }
+      ]
+    };
+    $('#chart-container').orgchart({
+      'data' : datascource, //数据
+      'nodeContent': 'title', //内容对应的字段
+      'direction':'l2r',
+      toggleSiblingsResp:true,
+      createNode:function(dom,_data){
+//    	debugger;
+  		$(dom).addClass('level'+_data.level)
+  		if(_data.title.indexOf('未开放')>0)
+			$(dom).addClass('nodeDisable')
+		else if(_data.title.indexOf('未通过')>0)
+			$(dom).addClass('applyPass')
+		if($(dom).find('.content').find('p').length == 1){
+			$(dom).find('.title').css('margin-top','16px')
+		}
+  			
+      }
+    });
+  	function iniTitlehtml(iconName){
+  	return '<i class="iconfont ' + iconName +'"></i>'
+  }
+  function initContentml(content,date){
+  	return '<p>'+content+'</p>'+(typeof date!="undefined"?'<p class="dateP">'+date+'</p>':'')
+  }
+  });
+})(jQuery)
+</script>
+
+</body>
+</html>

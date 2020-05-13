@@ -1,0 +1,88 @@
+.orgchart.l2r .node{
+	transform: rotateZ(-90deg) rotateY(180deg)
+}
+.orgchart .node {
+    height: 80px !important;
+	width: 170px !important;
+	margin:36px 0;
+	background-color: #ffffff;
+	box-shadow: 2px 3px 4px 0px 
+		#eaf0f1;
+	border-radius: 2px;
+	border: solid 1px #e3e3e3;
+    line-height: 1;
+}
+.orgchart .node.nodeDisable{
+	background-color: #f0f0f0;
+}
+.orgchart .node .title {
+    padding:0;
+    width: 100%;
+    height:auto;
+    font-weight: bold;
+    height: auto;
+    background-color:transparent;
+    color: #00c0dd;
+    margin: 9px 0 4px;
+}
+.orgchart .node.nodeDisable .title,.orgchart .node.nodeDisable .content{
+	color: #999
+}
+.orgchart .node .title i{
+	font-size: 22px;
+}
+.orgchart .node .content{
+    padding: 0; 
+    height: auto; 
+    font-size: 14px;
+    border: none;
+    background-color:transparent;
+}
+.orgchart .node .content p{
+	margin:0
+}
+.orgchart .node .content p:first-child:last-child{
+	margin-top:10px
+}
+.orgchart .node .content p.dateP{
+	color: #666;
+	margin-top: 7px;
+}
+
+/*线*/
+.orgchart .lines:nth-child(2) td{
+	height:40px;
+}
+.orgchart .lines:nth-child(3) td{
+	height:55px;
+}
+.orgchart .lines .lines:nth-child(2) td,.orgchart .nodes .lines:nth-child(2) td,.orgchart .nodes .lines:nth-child(3) td{
+	height:87px;
+}
+.orgchart .lines .downLine {
+    display: table;
+    position: relative;
+    left: -0.5px;
+    z-index: -1;
+    top: -2px;
+}
+/*拐点*/
+.topLine{
+	position:relative
+}
+.leftLine.topLine:after,.leftLine.topLine + .rightLine.topLine:after{
+	position: absolute;
+	content: '';
+	width: 8px;
+	height: 8px;
+	background-color: #c3f7ff;
+	border-radius: 50%;
+    top: -5px;
+    
+}
+.leftLine.topLine + .rightLine.topLine:after{
+	right: -5px
+}
+.leftLine.topLine:after{
+	left: -5px
+}
